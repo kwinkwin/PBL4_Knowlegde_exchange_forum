@@ -37,28 +37,10 @@
             		+ "&search=" + document.getElementById("txtsearch").value + "&sort=" + document.getElementById("mysort").value;
             location = l;
         }
-        
-        function textAreaAdjust1(element) {
-            // Set a minimum height if desired
-            const minHeight = 33; // Adjust this value as needed
-            // Resize function that adjusts the height based on the scrollHeight
-            const resizeTextArea = () => {
-                element.style.height = '1px'; // Temporarily shrink the element to auto height to get the correct scrollHeight
-                const newHeight = Math.max(element.scrollHeight, minHeight);
-                element.style.height = newHeight + 'px';
-            };
-            // Event listener for textarea input
-            element.addEventListener('input', resizeTextArea);
-            // Event listener for keydown to specifically handle Enter and Backspace keys (optional)
-            element.addEventListener('keyup', function(event) {
-            if (event.key === 'Enter' || event.key === 'Backspace') {
-                // We will wait until the key action has taken effect before resizing
-                // setTimeout will run after the key action has taken effect
-                setTimeout(resizeTextArea, 0);
-            }
-            });
-            // Initial resizing in case we need to adjust from the default height on page load
-            resizeTextArea();
+        function caichido(element)
+        {
+            element.style.height = '1px';
+            element.style.height = (25 + element.scrollHeight) + 'px';
         }
         function activate1() {
             var choosefile = document.getElementById("choosefile");
@@ -133,7 +115,13 @@
             var content = document.getElementById("content-text").value;
             var hastag = document.getElementById("hastag").value;
             var fileInput = document.getElementById("choosefile");
+            var images = document.querySelectorAll("#set-img img");
             var numberimg = fileInput.files.length;
+            if(images.length == 0)
+            {
+                numberimg = 0;
+            }
+            
             var numberfields = document.getElementById("nbfield").value;
             var form = new FormData();
             form.append("newpost", 1);
@@ -342,9 +330,9 @@
                             
                             <div class="post-row">
                                 <div class="post-content">
-                                    <textarea id="title" class="enterable" style="height: 23px; min-height: 23px" placeholder="Title" oninput="textAreaAdjust1(this), adjustscrollbar1(this)" onkeyup="textAreaAdjust1(this), adjustscrollbar1(this)"></textarea>
-                                    <textarea id="content-text" class="enterable" style="min-height: 50px;" placeholder="What are you wondering?" oninput="textAreaAdjust1(this), adjustscrollbar1(this)" onkeyup="textAreaAdjust1(this), adjustscrollbar1(this)"></textarea>
-                                    <textarea id="hastag" class="enterable" style="min-height: 10px;" placeholder="#Hastag" oninput="textAreaAdjust1(this), adjustscrollbar1(this)" onkeyup="textAreaAdjust1(this), adjustscrollbar1(this)"></textarea> 
+                                    <textarea id="title" class="enterable" style="height: 23px; min-height: 23px" placeholder="Title" onkeyup="caichido(this), adjustscrollbar1(this)"></textarea>
+                                    <textarea id="content-text" class="enterable" style="min-height: 50px;" placeholder="What are you wondering?" onkeyup="caichido(this), adjustscrollbar1(this)"></textarea>
+                                    <textarea id="hastag" class="enterable" style="min-height: 10px;" placeholder="#Hastag" onkeyup="caichido(this), adjustscrollbar1(this)"></textarea> 
                                     <div class="more-function" style="height: 25px;">
                                         <input id="choosefile" type="file" accept="image/*" multiple max="4" onchange="setImg1()">
                                         <input type="text" name="numberimg" id="numberimg" value="0" hidden>

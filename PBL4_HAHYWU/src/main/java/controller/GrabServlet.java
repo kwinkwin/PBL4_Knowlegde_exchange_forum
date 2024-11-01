@@ -1256,7 +1256,7 @@ public class GrabServlet extends HttpServlet {
 				if(check)
 				{
 					Notification noti = new Notification();
-					noti.setID_Post(Integer.parseInt(request.getParameter("IDPost")));
+					noti.setID_Post(Integer.parseInt(request.getParameter("censoredidp")));
 					noti.setMessage("has been approved.");
 					LocalDate now = LocalDate.now();
 					Date nowDate = Date.valueOf(now);

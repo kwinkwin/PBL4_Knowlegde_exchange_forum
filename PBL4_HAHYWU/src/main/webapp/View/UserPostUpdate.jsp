@@ -22,20 +22,10 @@
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/View/style03.css">
     <jsp:include page="HeaderUser.jsp" />
     <script>
-	    function textAreaAdjust(element) {
-	        const minHeight = 33;
-	        const resizeTextArea = () => {
-	            element.style.height = '1px'; 
-	            const newHeight = Math.max(element.scrollHeight, minHeight);
-	            element.style.height = newHeight + 'px';
-	        };
-	        element.addEventListener('input', resizeTextArea);
-	        element.addEventListener('keyup', function(event) {
-	        if (event.key === 'Enter' || event.key === 'Backspace') {
-	            setTimeout(resizeTextArea, 0);
-	        }
-	        });
-	        resizeTextArea();
+	    function caichido2(element)
+	    {
+	        element.style.height = '1px';
+	        element.style.height = (25 + element.scrollHeight) + 'px';
 	    }
         function activate() {
             var choosefile = document.getElementById("choosefile");
@@ -62,12 +52,17 @@
         function removeImg() {            
             var images = document.querySelectorAll("#set-img img");
             var closebutton = document.getElementById("close-image-button");
+            var fileInput = document.getElementById("choosefile");
+            for (var j = 0; j < fileInput.length; j++)
+            {
+                fileInput.file[j].remove();
+            }
             for (var i = 0; i < images.length; i++) {
                 images[i].remove();
                 closebutton.style.display = "none";
             }
         }
-        function adjustscrollbar(element) {
+        function adjustscrollbar2(element) {
             element.scrollIntoView(false);
         }
         function clickfield()
@@ -221,9 +216,9 @@
                     
                     <div class="post-row">
                         <div class="post-content">
-                            <textarea id="title" class="enterable" style="height: 23px; min-height: 23px" placeholder="Title" oninput="textAreaAdjust(this)" onkeyup="adjustscrollbar(this)"><%= p.getTitle() %></textarea>
-                            <textarea id="content-text" class="enterable" style="min-height: 50px; resize: vertical;" placeholder="What are you wondering?" oninput="textAreaAdjust(this)" onkeyup="adjustscrollbar(this)"><%= p.getContent() %></textarea>
-                            <textarea id="hastag" class="enterable" style="min-height: 10px;" placeholder="#Hastag" oninput="textAreaAdjust(this)" onkeyup="adjustscrollbar(this)"><%= p.getHastag() %></textarea> 
+                            <textarea id="title" class="enterable" style="height: 23px; min-height: 23px" placeholder="Title" onkeyup="caichido2(this), adjustscrollbar2(this)"><%= p.getTitle() %></textarea>
+                            <textarea id="content-text" class="enterable" style="min-height: 50px; resize: vertical;" placeholder="What are you wondering?" onkeyup="caichido2(this), adjustscrollbar2(this)"><%= p.getContent() %></textarea>
+                            <textarea id="hastag" class="enterable" style="min-height: 10px;" placeholder="#Hastag" onkeyup="caichido2(this), adjustscrollbar2(this)"><%= p.getHastag() %></textarea> 
                             
                             <div class="more-function" style="height: 25px;">
                                 <input id="choosefile" type="file" accept="image/*" multiple max="4" onchange="setImg()">
@@ -231,7 +226,7 @@
                                 <input type="button" class="choose-more-button" onclick="activate();">
                                 <input type="button" class="choose-more-button button-field" onclick="clickfield()">
                             </div>
-                            <div class="more-function" id="set-img" style="margin-top: 0; margin-bottom: 20px;" onload="checkHeightChange()">
+                            <div class="more-function" id="set-img" style="margin-top: 0; margin-bottom: 20px;">
                                 <!-- Loop image -->
                                 <% 
                                 byte[] imageBytes2 = null;
