@@ -1,0 +1,384 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+:root {
+    --darkblue: #1B335B;
+    --lightblue: #89A1C9;
+    --darkblue50: rgba(27, 51, 91, 0.5);
+    --darkorange: #F1916D;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* CHANGE PASSWORD */
+.ChangePassword {
+    background-color: white;
+    padding-bottom: 24px;
+    border: 1px solid var(--darkblue);
+    border-radius: 30px;
+    box-shadow: 4px 4px 10px grey;
+    width: 437px;
+    overflow: hidden;
+    text-align: center;
+    color: rgba(27, 51, 91, 0.66);
+}
+.info-field {
+    position: relative;
+    padding: 0 95px;
+    margin-bottom: 10px;
+}
+.info-text {
+    font-size: 14px;
+    text-align: left;
+    margin: 0 10px 2px;
+}
+.info-enter {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    padding-left: 10px;
+    font-size: 14px;
+    border: 2px solid  var(--darkblue);
+    color: #1B335B;
+}
+.showpw {
+    position: absolute;
+    right: 100px;
+    width: 30px !important;
+    height: 30px !important;
+    border: none !important;
+    background-color: transparent;
+    background-image: url(../img/noeye.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.showpw:active {
+    background-image: url(../img/eye.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.alertchangepw-content {
+    color: #F1916D;
+    font-size: 14px;
+}
+
+/* SIGN OUT */
+#click-choice, #notification-box, #camera-choice {
+    display: block;
+    position: absolute;
+    right: 14px;
+    bottom: -44px;
+    width: 230px;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px grey;
+}
+.signout {
+    width: 220px;
+    height: 40px;
+    margin: 7px 0;
+    background-image: url(../img/signout.png);
+    background-position: left 21px bottom 7px;
+    background-repeat: no-repeat;
+    background-color: white;
+    text-align: left;
+    color: var(--darkblue);
+    padding-left: 60px;
+    border-radius: 10px;
+    border: none;
+}
+.signout:hover {
+    background-color: rgba(137,161,201,0.3);
+    border: none;
+}
+
+/* NOTIFICATION */
+#notification-box {
+	width: 235px !important;
+    height: 280px !important;
+    bottom: -270px !important;
+    right: 85px !important;
+    overflow: auto;
+    overflow-x: hidden;
+    text-align: left;
+    overflow-y: scroll;
+  	scrollbar-width: none;
+  	-ms-overflow-style: none;
+}
+#notification-box::-webkit-scrollbar {
+  display: none;
+}
+.notification-header {
+    border-bottom: 2px solid rgba(27, 51, 91, 0.5);
+    width: 208px;
+    height: 30px;
+    margin: 17px 0 0 11px;
+    font-size: 18px;
+    color: var(--darkblue);
+}
+.notification-content {
+    position: relative;
+    border-radius: 10px;
+    width: 225px;
+    margin:2px 0 2px 5px;
+    overflow: hidden;
+    padding: 2px 0 5px 5px;
+}
+.notification-content:hover {
+    background-color: lightgray;
+}
+.notification-content.unseen {
+    background-color: rgba(137,161,201,0.3);
+}
+.notification-ava {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url(../img/avata1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 90px;
+    width: 33px;
+    height: 33px;
+}
+.notification-text {
+    color: rgba(27, 51, 91, 0.9);
+    float: left;
+    width: 75%;
+    font-size: 14px;
+    height: auto;
+    line-height: 20px;
+    margin-left: 40px;
+    margin-bottom: 0;
+}
+.notification-text > b {
+    color: #1B335B;
+}
+
+/* CAMERA CHOICE */
+#camera-choice {
+    width: 200px;
+    height: 110px;
+    top: 140px;
+    left: 110px;
+}
+.choice {
+    color: #1B335B;
+    font-size: 16px;
+    width: 90%;
+    height: 40px;
+    margin: 7px 0;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+.choice:hover {
+    background-color: rgba(137,161,201,0.3);
+}
+/* Subject choices for new posts */
+.subject-choice {
+    width: 700px !important;
+    overflow: hidden;
+    padding: 45px 35px !important;
+    text-align: center;
+}
+.subject-content-set {
+    width: 20%;
+    overflow: hidden;
+    float: left;
+    text-align: right;
+}
+.subject-content-set > p {
+    color: var(--darkblue);
+    font-size: 20px;
+    font-weight: bold;
+}
+.hold-subject-content {
+    width: 23%; 
+    height: 31px; 
+    float: left; 
+    text-align: left;
+    font-size: 14px;
+    color: var(--darkblue);
+}
+.hold-subject-content > label {
+    vertical-align: middle;
+    font-weight: 400;
+}
+.hold-subject-content > input[type="checkbox"] {
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+}
+ /* COMMENT */
+.choose-image {
+    border: none !important;
+    position: absolute !important; 
+    top: 11px !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: white !important;
+    background-size: cover !important;
+}
+.create-comment {
+    margin-top: -40px;
+    padding: 50px 0 10px;
+    border: 1px solid #1B335B; 
+    border-top: none;
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 0 0 30px 30px;
+}
+.comment {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 300px;
+    margin-top: -25px;
+    padding-top: 24px;
+}
+.show-comment {
+    display: block;
+    position: relative;
+    padding-top: 5px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.one-comment {
+    border-radius: 30px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start;
+    margin: 10px 0;
+}
+.commentinfor {
+    font-size: 12px;
+    color: #1B335B;
+    width: 100%;
+    height: 44px;
+    margin: 0 0 5px;
+    padding-bottom: 5px;
+}
+.commentinfor > p {
+    font-size: 18px;
+    margin: 0;
+}
+.commentinfor > a {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 800;
+    text-decoration: none;
+    color: #1B335B;
+    display: block;
+}
+.commentinfor > a:visited {
+	color: #1B335B;
+}
+.commentinfor > input {
+    color: #1B335B;
+    outline: none;
+    background-color: transparent;
+    border: 1px black;
+    pointer-events: none;
+}
+
+.comment-type {
+    border: 2px solid #1B335B;
+    border-radius: 30px;
+    width: 100%;
+    height: 33px;
+    overflow: hidden;
+    min-height: 33px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1B335B;
+    resize: none;
+    padding: 5px 90px 0 15px;
+    outline: none;
+}
+.press-delete {
+    width: 50px;
+    height: 20px;
+    border-radius: 90px;
+    background-color: transparent;
+    border: transparent;
+    float: left;
+/*     margin-left: 10px; */
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+.press-delete:hover {
+	color: #1B335B;
+	background-color: rgb(241, 145, 109, 0.5);
+}
+
+/* Subject choices for new posts */
+.subject-choice {
+    width: 700px !important;
+    overflow: hidden;
+    padding: 45px 35px !important;
+    text-align: center;
+}
+.subject-content-set {
+    width: 20%;
+    overflow: hidden;
+    float: left;
+    text-align: right;
+}
+.subject-content-set > p {
+    color: var(--darkblue);
+    font-size: 20px;
+    font-weight: bold;
+}
+.hold-subject-content {
+    width: 23%; 
+    height: 31px; 
+    float: left; 
+    text-align: left;
+    font-size: 14px;
+    color: var(--darkblue);
+}
+.hold-subject-content > label {
+    vertical-align: middle;
+    font-weight: 400;
+}
+.hold-subject-content > input[type="checkbox"] {
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+}
+.alert-report {
+	width: 500px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	border: 4px solid var(--darkorange);
+	border-radius: 20px;
+}
+.alert-report > img {
+	width: 40px;
+	height: 40px;
+}
+.alert-report > p {
+	font-size: 25px;
+	font-weight: bold;
+	color: var(--darkorange);
+	margin: 0 0 0 15px;
+}
+
